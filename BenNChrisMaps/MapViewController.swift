@@ -31,6 +31,8 @@ class MapViewController: ViewController, CLLocationManagerDelegate, GMSMapViewDe
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
         
+        //mapView.delegate = self
+        
         placesClient = GMSPlacesClient.shared()
         
         // Create a GMSCameraPosition that tells the map to display the
@@ -83,7 +85,6 @@ class MapViewController: ViewController, CLLocationManagerDelegate, GMSMapViewDe
     // get location
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation = locations.last
-        let center = CLLocationCoordinate2D(latitude: userLocation!.coordinate.latitude, longitude: userLocation!.coordinate.longitude)
 
         let camera = GMSCameraPosition.camera(withLatitude: userLocation!.coordinate.latitude,
                                               longitude: userLocation!.coordinate.longitude, zoom: 13.0)
@@ -93,11 +94,11 @@ class MapViewController: ViewController, CLLocationManagerDelegate, GMSMapViewDe
         
         // Add a button
         btn.backgroundColor = UIColor.blue
-        btn.setTitle("Add", for: .normal)
+        btn.setTitle("+", for: .normal)
         btn.setTitleColor(UIColor.white, for: .normal)
         btn.setTitleColor(UIColor.white, for: .selected)
         btn.titleLabel!.font = UIFont(name: "Avenir Next", size: 26)
-        btn.frame = CGRect(x: 250, y: 550, width: 80, height: 80)
+        btn.frame = CGRect(x: 260, y: 550, width: 80, height: 80)
         btn.addTarget(self, action: #selector(buttonPressed(sender:)), for: UIControlEvents.touchUpInside)
         btn.layer.cornerRadius = 40
         btn.clipsToBounds = true
