@@ -51,30 +51,9 @@
                     <view key="view" contentMode="scaleToFill" id="b5y-cX-4cz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPe-ye-AE1">
-                                <rect key="frame" x="275" y="567" width="80" height="80"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="5Z0-HE-85I"/>
-                                    <constraint firstAttribute="width" constant="80" id="K5u-Cw-uez"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="+">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="rDR-ov-Ik5" firstAttribute="bottom" secondItem="gPe-ye-AE1" secondAttribute="bottom" constant="20" id="Kna-0G-YpK"/>
-                            <constraint firstItem="rDR-ov-Ik5" firstAttribute="trailing" secondItem="gPe-ye-AE1" secondAttribute="trailing" constant="20" id="chV-QD-y1m"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="rDR-ov-Ik5"/>
                     </view>
-                    <connections>
-                        <outlet property="addPinBtn" destination="gPe-ye-AE1" id="AfS-fg-cna"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sB0-dw-ybn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
