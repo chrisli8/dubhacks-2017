@@ -11,6 +11,7 @@ import GoogleMaps
 
 class MapViewController: ViewController {
     @IBOutlet weak var addPinBtn: UIButton!
+    let btn = UIButton(type: .system) as UIButton
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +33,27 @@ class MapViewController: ViewController {
         marker.title = "Sydney"
         marker.snippet = "Australia"
         marker.map = mapView
+        
+        // Add a button
+        btn.backgroundColor = UIColor.blue
+        btn.setTitle("Add", for: .normal)
+        btn.setTitleColor(UIColor.white, for: .normal)
+        btn.setTitleColor(UIColor.white, for: .selected)
+        btn.titleLabel!.font = UIFont(name: "Avenir Next", size: 36)
+        btn.frame = CGRect(x: 250, y: 550, width: 80, height: 80)
+        btn.addTarget(self, action: #selector(buttonPressed(sender:)), for: UIControlEvents.touchUpInside)
+        btn.layer.cornerRadius = 40
+        btn.clipsToBounds = true
+        mapView.addSubview(btn)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func buttonPressed(sender:UIButton!) {
+        
     }
     
 
