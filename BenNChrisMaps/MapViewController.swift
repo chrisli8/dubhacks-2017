@@ -31,15 +31,16 @@ class MapViewController: ViewController, CLLocationManagerDelegate, GMSMapViewDe
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
         
-        //mapView.delegate = self
         
-        placesClient = GMSPlacesClient.shared()
+        //placesClient = GMSPlacesClient.shared()
         
         // Create a GMSCameraPosition that tells the map to display the
         // coordinate -33.86,151.20 at zoom level 6.
 //        let camera = GMSCameraPosition.camera(withLatitude: 47.6549516, longitude: -122.3089823, zoom: 9.0)
 //        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
 //        view = mapView
+//        mapView = GMSMapView()
+//        mapView.delegate = self
         
         // Creates a marker in the center of the map.
 //        let marker = GMSMarker()
@@ -90,6 +91,7 @@ class MapViewController: ViewController, CLLocationManagerDelegate, GMSMapViewDe
                                               longitude: userLocation!.coordinate.longitude, zoom: 13.0)
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         mapView.isMyLocationEnabled = true
+        mapView.delegate = self
         self.view = mapView
         
         // Add a button
