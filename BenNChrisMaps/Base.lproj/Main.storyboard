@@ -1,24 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dgg-X0-YHK">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="BenNChrisMaps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="lpX-rm-6co">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2i4-jZ-wmU">
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="591" id="htj-pq-Dsu"/>
+                                    <constraint firstAttribute="width" constant="375" id="qmh-8B-ecb"/>
+                                </constraints>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="2i4-jZ-wmU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4CM-ge-i9d"/>
+                            <constraint firstItem="lpX-rm-6co" firstAttribute="leading" secondItem="2i4-jZ-wmU" secondAttribute="leading" id="9CS-cD-OTj"/>
+                            <constraint firstItem="2i4-jZ-wmU" firstAttribute="top" secondItem="lpX-rm-6co" secondAttribute="bottom" id="Lni-bO-gZ7"/>
+                            <constraint firstItem="lpX-rm-6co" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="l20-EJ-L4N"/>
+                            <constraint firstItem="lpX-rm-6co" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sv6-ne-Q8s"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="29.23538230884558"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="Cf4-le-fQk">
+            <objects>
+                <viewController id="dgg-X0-YHK" customClass="MapViewController" customModule="BenNChrisMaps" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b5y-cX-4cz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPe-ye-AE1">
+                                <rect key="frame" x="275" y="567" width="80" height="80"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="5Z0-HE-85I"/>
+                                    <constraint firstAttribute="width" constant="80" id="K5u-Cw-uez"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rDR-ov-Ik5" firstAttribute="bottom" secondItem="gPe-ye-AE1" secondAttribute="bottom" constant="20" id="Kna-0G-YpK"/>
+                            <constraint firstItem="rDR-ov-Ik5" firstAttribute="trailing" secondItem="gPe-ye-AE1" secondAttribute="trailing" constant="20" id="chV-QD-y1m"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rDR-ov-Ik5"/>
+                    </view>
+                    <connections>
+                        <outlet property="addPinBtn" destination="gPe-ye-AE1" id="AfS-fg-cna"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sB0-dw-ybn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-929" y="29"/>
         </scene>
     </scenes>
 </document>
