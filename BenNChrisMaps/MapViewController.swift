@@ -20,6 +20,8 @@ class MapViewController: ViewController, CLLocationManagerDelegate, GMSMapViewDe
     var placesClient: GMSPlacesClient!
     var zoomLevel: Float = 15.0
     
+    var dataPoints: [GMSMarker] = [] // Not necessary?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,41 +33,25 @@ class MapViewController: ViewController, CLLocationManagerDelegate, GMSMapViewDe
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
         
-        
-        //placesClient = GMSPlacesClient.shared()
-        
-        // Create a GMSCameraPosition that tells the map to display the
-        // coordinate -33.86,151.20 at zoom level 6.
-//        let camera = GMSCameraPosition.camera(withLatitude: 47.6549516, longitude: -122.3089823, zoom: 9.0)
-//        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-//        view = mapView
-//        mapView = GMSMapView()
-//        mapView.delegate = self
-        
-        // Creates a marker in the center of the map.
-//        let marker = GMSMarker()
-//        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-//        marker.title = "Sydney"
-//        marker.snippet = "Australia"
-//        marker.map = mapView
-        
-//        // Add a button
-//        btn.backgroundColor = UIColor.blue
-//        btn.setTitle("Add", for: .normal)
-//        btn.setTitleColor(UIColor.white, for: .normal)
-//        btn.setTitleColor(UIColor.white, for: .selected)
-//        btn.titleLabel!.font = UIFont(name: "Avenir Next", size: 26)
-//        btn.frame = CGRect(x: 250, y: 550, width: 80, height: 80)
-//        btn.addTarget(self, action: #selector(buttonPressed(sender:)), for: UIControlEvents.touchUpInside)
-//        btn.layer.cornerRadius = 40
-//        btn.clipsToBounds = true
-//        mapView.addSubview(btn)
-        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func select(marker: GMSMarker) {
+        mapView.selectedMarker = marker
+        print("SELECTED")
+        let alert = CustomPopAlertView(title: "Event Title")
+        alert.show(animated: true)
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        print("SELECTED")
+        let alert = CustomPopAlertView(title: "Event Title")
+        alert.show(animated: true)
+        return true
     }
     
     @objc func buttonPressed(sender:UIButton!) {
@@ -76,8 +62,9 @@ class MapViewController: ViewController, CLLocationManagerDelegate, GMSMapViewDe
     // Creates new marker at long press location
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
         let pressedLocation = GMSMarker(position: coordinate)
-        pressedLocation.title = "New Location"
-        pressedLocation.snippet = "\(coordinate.latitude), \(coordinate.longitude)"
+        pressedLocation.icon = GMSMarker.markerImage(with: UIColor.green)
+        pressedLocation.title = "Event Name"
+        pressedLocation.snippet = "Event Discription"
         pressedLocation.map = mapView
     }
     
@@ -88,7 +75,7 @@ class MapViewController: ViewController, CLLocationManagerDelegate, GMSMapViewDe
         let userLocation = locations.last
 
         let camera = GMSCameraPosition.camera(withLatitude: userLocation!.coordinate.latitude,
-                                              longitude: userLocation!.coordinate.longitude, zoom: 13.0)
+                                              longitude: userLocation!.coordinate.longitude, zoom: 16.0)
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         mapView.isMyLocationEnabled = true
         mapView.delegate = self
