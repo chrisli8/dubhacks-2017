@@ -9,4 +9,5 @@ target 'BenNChrisMaps' do
   # Pods for BenNChrisMaps
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'Firebase/Core'
 end
